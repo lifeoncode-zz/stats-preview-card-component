@@ -15,6 +15,15 @@ img {
     &.mobile {
         display: none;
     }
+
+    @media only screen and (max-width: 770px) {
+        display: none;            
+
+        &.mobile {
+            display: block;
+            width: 100%;
+        }   
+    }
 }
 
 .container {
@@ -60,11 +69,24 @@ img {
                     font-weight: normal;
                 }
             }
+
+            @media only screen and (max-width: 400px) {
+                @include grid();
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            padding: 30px;
+        }
+
+        @media only screen and (max-width: 400px) {
+            text-align: center;
         }
     }
 
     .image {
         position: relative;
+        width: 100%;
 
         &::after {
             position: absolute;
@@ -76,5 +98,14 @@ img {
             content: '';
             opacity: 0.6;
         }
+    }
+
+    @media only screen and (max-width: 930px) {
+        max-width: 95%;
+    }
+
+    @media only screen and (max-width: 770px) {
+        @include flex($direction:column-reverse);
+        margin: 20px auto;
     }
 }
