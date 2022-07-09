@@ -1,0 +1,80 @@
+@import './config';
+
+body {
+    background-color: $very-dark-blue;
+    height: 100vh;
+    overflow-y: scroll;
+    @include flex();
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &.mobile {
+        display: none;
+    }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    @include grid(1.2fr 1fr, 0px);
+    background-color: $dark-desaturated-blue;
+
+    .text {
+        padding: 55px;
+
+        h1 {
+            color: $white;
+            font-size: 30px;
+
+            .highlight {
+                color: $soft-violet;
+            }
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.4;
+            margin: 25px 0 50px 0;
+            color: $slightly-transparent-white-p;
+        }
+
+        .stats {
+            @include flex($justify:space-between);            
+
+            span {
+                font-size: 20px;
+                font-weight: bold;
+                color: $white;
+                
+                &.smaller {
+                    color: $slightly-transparent-white-s;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+
+    .image {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: hsl(277, 80%, 29%);
+            content: '';
+            opacity: 0.6;
+        }
+    }
+}
